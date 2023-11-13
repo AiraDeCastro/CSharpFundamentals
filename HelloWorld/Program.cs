@@ -6,21 +6,21 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            int[] numbers = new int[3];
-            numbers[0] = 1;
+            var firstName = "Aira";
+            var lastName = "de Castro";
 
-            Console.WriteLine(numbers[0]);
-            Console.WriteLine(numbers[1]);
-            Console.WriteLine(numbers[2]);
+            var fullName = firstName + " " + lastName;
 
-            var flags = new bool[3];
-            flags[0] = true;
-            Console.WriteLine(flags[0]);
-            Console.WriteLine(flags[1]);
-            Console.WriteLine(flags[2]);
+            var myFullName = string.Format("My name is {0} {1} ", firstName, lastName);
 
-            var names = new string[3] { "Jack", "John", "Jill" };
-            Console.WriteLine(names[2]);
+            var names = new string[3] { "John", "Jack", "Jill"};
+            var formattedNames = string.Join(", ", names);
+
+            var text = @"Hi John
+Look into the following paths
+c:\folder1\folder2
+c:\folder3\folder4";
+            Console.WriteLine(text);
         }
     }
 }
