@@ -1,26 +1,29 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace HelloWorld
 {
+    public enum ShippingMethod
+    {
+        RegularAirMail = 1,
+        RegisteredAirMail = 2,
+        Express = 3
+    }
+
     public class Program
     {
         static void Main(string[] args)
         {
-            var firstName = "Aira";
-            var lastName = "de Castro";
+            var method = ShippingMethod.Express;
+            Console.WriteLine((int)method);
 
-            var fullName = firstName + " " + lastName;
+            var methodId = 3;
+            Console.WriteLine((ShippingMethod)methodId);
+            
+            Console.WriteLine(method.ToString());
 
-            var myFullName = string.Format("My name is {0} {1} ", firstName, lastName);
-
-            var names = new string[3] { "John", "Jack", "Jill"};
-            var formattedNames = string.Join(", ", names);
-
-            var text = @"Hi John
-Look into the following paths
-c:\folder1\folder2
-c:\folder3\folder4";
-            Console.WriteLine(text);
+            var methodName = "Express";
+            var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
         }
     }
 }
