@@ -3,32 +3,47 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HelloWorld
 {
-    public class Person
-    {
-        public int Age;
-    }
-
     public class Program
     {
         static void Main(string[] args)
         {
-            var number = 1;
-            Increment(number);
-            Console.WriteLine(number);
+            var numbers = new int[] { 3, 7, 9, 2, 14, 6 };
 
-            var person = new Person() {Age = 20};
-            MakeOld(person);
-            Console.WriteLine(person.Age);
-        }
+            // Length
+            Console.WriteLine("Length: " + numbers.Length); // access length
 
-        public static void Increment(int number)
-        {
-            number += 10;
-        }
+            // IndexOf()
+            var index = Array.IndexOf(numbers, 9);
+            Console.WriteLine("Index of 9: " + index);
 
-        public static void MakeOld(Person person) 
-        {
-            person.Age += 10;
+            // Clear()
+            Array.Clear(numbers, 0, 2);
+
+            Console.WriteLine("Effect of Clear()");
+            foreach (var n in numbers)
+                Console.WriteLine(n);
+
+            // Copy()
+            int[] another = new int[3];
+            Array.Copy(numbers, another, 3);
+
+            Console.WriteLine("Effect of Copy()");
+            foreach (var n in another)
+                Console.WriteLine(n);
+
+            // Sort()
+            Array.Sort(numbers);
+
+            Console.WriteLine("Effect of Sort()");
+            foreach (var n in numbers)
+                Console.WriteLine(n);
+
+            // Reverse()
+            Array.Reverse(numbers);
+
+            Console.WriteLine("Effect of Reverse()");
+            foreach (var n in numbers)
+                Console.WriteLine(n);
         }
     }
 }
