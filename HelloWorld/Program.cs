@@ -7,29 +7,33 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            var numbers = new List<int>() { 1, 2, 3, 4 };
-            numbers.Add(1);
-            numbers.AddRange(new int[3] { 5 ,6 ,7 });
+            var fullName = "Aira de Castro ";
+            Console.WriteLine("Trim: '{0}'", fullName.Trim());
+            Console.WriteLine("ToUpper: '{0}'", fullName.Trim().ToUpper());
+            Console.WriteLine("ToLower: '{0}'", fullName.Trim().ToLower());
 
-            foreach (var number in numbers)
-                Console.WriteLine(number);
+            var index = fullName.IndexOf(' ');
+            var firstName = fullName.Substring(0, index);
+            var lastName = fullName.Substring(index + 1);
+            Console.WriteLine("FirstName: " + firstName);
+            Console.WriteLine("LastName: " + lastName);
 
-            Console.WriteLine();
-            Console.WriteLine("Index of 1: " + numbers.IndexOf(1));
-            Console.WriteLine("Last Index of 1: " + numbers.LastIndexOf(1));
+            var names = fullName.Split(' ');
+            Console.WriteLine("FirstName: " + names[0]);
+            Console.WriteLine("LastName: " + names[1] + names[2]);
 
-            Console.WriteLine("Count: " + numbers.Count);
+            Console.WriteLine(fullName.Replace("Aira", "Nicole"));
 
-            for (var i =  0; i < numbers.Count; i++)
-            {
-                if (numbers[i] == 1)
-                    numbers.Remove(numbers[i]);
-            }
-            foreach(var number in numbers)
-                Console.WriteLine(number);
+            if (String.IsNullOrWhiteSpace(" "))
+                Console.WriteLine("Invalid");
 
-            numbers.Clear();
-            Console.WriteLine("Count: " + numbers.Count);
+            var str = "25";
+            var age = Convert.ToByte(str);
+            Console.WriteLine(age);
+
+            float price = 29.95f;
+            Console.WriteLine(price.ToString("C0"));
+
         }
     }
 }
